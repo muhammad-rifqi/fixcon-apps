@@ -1,0 +1,536 @@
+/*================*** Header Section Start Here     ***===================*/
+.header {
+    // @include breakpoint(max-xl) {
+    //     background-color: $title-color;
+    // }
+    &.header-fixed {
+        &.header {
+            &__one {
+                background-color: $title-color;
+                .header {
+                    &__top {
+                        display: none;
+                    }
+                }
+            }
+            &__two {
+                .header {
+                    &__bottom {
+                        position: static;
+                        @extend %w-100;
+                        top: 0;
+                        z-index: 99;
+                        @include breakpoint(xl) {
+                            position: fixed;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        padding-block: 15px;
+        .area {
+            @extend %flex;
+            @extend %justify-between;
+            @extend %align-items-center;
+            .logo {
+                @include breakpoint(max-sm) {
+                    max-width: 140px;
+                }
+            }
+            .menu {
+                @extend %flex;
+                @extend %justify-between;
+                
+                @include breakpoint(max-xl) {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    width: 100%;
+                    left: 0;
+                    background-color: $title-color;
+                    z-index: 9999;
+                    padding-bottom: 30px;
+                    &.active {
+                        display: inherit;
+                        padding-inline: 30px;
+                    }
+                }
+                ul {
+                    li {
+                        @extend %d-inline-block;
+                        @extend %rel;
+                        @include breakpoint(max-xl) {
+                            display: block;
+                        }
+                        &:hover {
+                            >ul {
+                                @include breakpoint(xl) {
+                                    opacity: 1;
+                                    top: 100%;
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                        a {
+                            padding: 15px 20px;
+                            @extend %text-bold;
+                            @extend %d-block;
+                            @extend %white-color;
+                            @extend %text-capitalize;
+                        }
+                        ul {
+                            background-color: $primary-color;
+                            @include breakpoint(max-xl) {
+                                display: none;
+                            }
+                            @include breakpoint(xl) {
+                                position: absolute;
+                                width: 220px;
+                                top: calc(100% + 30px);
+                                left: 0;
+                                @include transition($transition);
+                                opacity: 0;
+                                z-index: 999;
+                                box-shadow: 0 0 3px rgba($theme-color, $alpha: .1);
+                                visibility: hidden;
+                            }
+                            li {
+                                @extend %d-block;
+                                &:last-child {
+                                    >a {
+                                        border: none;
+                                    }
+                                }
+                                &.menu-item-has-children {
+                                    a {
+                                        &::after, &::before {
+                                            background-color: $white-color;
+                                        }
+                                        
+                                        &::before {
+                                            right: 24px;
+                                        }
+                                        &::after {
+                                            right: 20px;
+                                        }
+                                    }
+                                }
+                                a {
+                                    font-size: 95%;
+                                    padding: 10px 20px;
+                                    border-bottom: 1px solid rgba($white-color, $alpha: .1);
+                                    @extend %white-color;
+                                    &:hover, &.active {
+                                        background-color: $theme-color;
+                                        color: $white-color;
+                                        &::after, &::before {
+                                            background-color: $white-color;
+                                        }
+                                    }
+                                }
+                                ul {
+                                    @include breakpoint(xl) {
+                                        left: 100%;
+                                        top: 0 !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__one {
+        top: 0;
+        left: 0;
+        @extend %w-100;
+        background-color: $title-color;
+        z-index: 9;
+        position: relative;
+        @include breakpoint(xl) {
+            position: fixed;
+            background-color: rgba($white-color, $alpha: .1);
+        }
+        .header {
+            &__top {
+                border-bottom: 1px solid rgba($white-color, $alpha: .1);
+                @include breakpoint(max-xl) {
+                    display: none;
+                }
+                .info {
+                    @include breakpoint(max-xl) {
+                        border-bottom: 1px solid rgba($white-color, $alpha: .1);
+                    }
+                    ul {
+                        @include breakpoint(max-xl) {
+                            text-align: center;
+                        }
+                        li {
+                            @extend %d-inline-block, %white-color;
+                            padding: 9px;
+                            border-left: 1px solid rgba($white-color, $alpha: .1);
+                            @include breakpoint(max-xl) {
+                                &:first-child {
+                                    border-left: none;
+                                }
+                            }
+                            @include breakpoint(max-sm) {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+                .social {
+                    @include breakpoint(max-xl) {
+                        text-align: center;
+                    }
+                    li {
+                        @extend %d-inline-block;
+                        a {
+                            @extend %d-inline-block, %p-10, %white-color, %text-capitalize;
+                            border-right: 1px solid rgba($white-color, $alpha: .1);
+                        }
+                        @include breakpoint(max-xl) {
+                            &:first-child {
+                                a {
+                                    border-left: 1px solid rgba($white-color, $alpha: .1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__two {
+        // @include breakpoint(max-xl) {
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     position: fixed;
+        //     z-index: 9;
+        // }
+        @include breakpoint(max-xl) {
+            position: relative;
+        }
+        .header {
+            
+            &__top {
+                padding-block: 16px;
+                @include breakpoint(max-xl) {
+                    display: none;
+                    background-color: $white-color;
+                }
+                .header {
+                    &__toparea {
+                        @extend %flex;
+                        @extend %align-items-center;
+                        @extend %justify-between;
+                        .info {
+                            ul {
+                                @extend %flex;
+                                li {
+                                    @extend %flex;
+                                    @extend %align-items-center;
+                                    @extend %p-10;
+                                    .thumb {
+                                        width: 40px;
+                                    }
+                                    .text {
+                                        width: calc(100% - 40px);
+                                        @extend %pl-10;
+                                        span {
+                                            @extend %text-bold;
+                                        }
+                                        p {
+                                            @extend %mb-0;
+                                            @extend %text-bold;
+                                            @extend %title-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__bottom {
+                background-color: $title-color;
+                padding-block: 8px;
+                .area {
+                    .search-area {
+                        form {
+                            @extend %rel;
+                            @include breakpoint(max-sm) {
+                                width: 200px;
+                            }
+                            input {
+                                @extend %white-color;
+                                padding-block: 12px;
+                                &::placeholder {
+                                    color: rgba($white-color, $alpha: .9);
+                                }
+                            }
+                            button {
+                                top: 50%;
+                                right: 15px;
+                                background-color: transparent;
+                                @extend %white-color;
+                                @extend %border-none;
+                                @extend %abs;
+                                @include transform(translateY(-50%));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__three {
+        .header {
+            &__top {
+                background-color: $primary-color;
+            }
+            &__bottom {
+                background-color: $white-color;
+                box-shadow: 0 0 5px rgba($title-color, $alpha: .1);
+                .area .menu ul li {
+                    >a {
+                        @extend %white-color;
+                        @include breakpoint(xl) {
+                            color: $title-color;
+                        }
+                        &::after, &::before {
+                            @include breakpoint(xl) {
+                                background-color: $title-color;
+                            }
+                        }
+                    }
+                    ul {
+                        li {
+                            a {
+                                color: $white-color;
+                                &.active, &:hover {
+                                    @extend %white-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__ellepsis {
+                i {
+                    color: $primary-color;
+                }
+            }
+            &__bar {
+                span {
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+    &__four {
+        @include breakpoint(xl) {
+            position: static;
+        }
+        .header {
+            &__top {
+                background-color: $primary-color;
+                padding-block: 0;
+                &--center {
+                    background-color: $white-color;
+                    padding-block: 15px;
+                    .info {
+                        ul {
+                            li {
+                                span {
+                                    @extend %title-color, %text-regular;
+                                }
+                                .text {
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__bottom {
+                background-color: $theme-color;
+                .area .menu ul li:hover > a {
+                    @extend %white-color;
+                    &::after, &::before {
+                        background-color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    &__bararea {
+        @extend %flex;
+        @extend %align-items-center;
+    }
+    &__bar {
+        @extend %rel;
+        @extend %pointer;
+        width: 25px;
+        height: 20px;
+        @extend %ml-30;
+    
+        span {
+            @extend %abs;
+            @extend %d-inline-block;
+            @extend %w-100;
+            height: 3px;
+            @include transition($transition);
+            background-color: $white-color;
+            left: 0;
+    
+            &:first-child {
+                top: 0;
+            }
+    
+            &:nth-child(2) {
+                top: 52%;
+                transform: translateY(-65%);
+            }
+    
+            &:last-child {
+                bottom: 0;
+            }
+        }
+    
+        &.active {
+            span {
+                &:first-child {
+                    @include transform(rotate(45deg) translate(3px, 9px));
+                }
+    
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+    
+                &:last-child {
+                    @include transform(rotate(-45deg) translate(3px, -9px));
+                }
+            }
+        }
+    
+        @include breakpoint(max-sm) {
+            width: 15px;
+            height: 16px;
+    
+            span {
+                height: 2px;
+                width: 20px;
+            }
+    
+            &.active {
+                span {
+                    &:first-child {
+                        @include transform(rotate(45deg) translate(4px, 6px));
+                    }
+    
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+    
+                    &:last-child {
+                        @include transform(rotate(-45deg) translate(4px, -6px));
+                    }
+                }
+            }
+        }
+    }
+    &__ellepsis {
+        font-size: 20px;
+        margin-left: 25px;
+
+        i {
+            @extend %pointer;
+            color: $white-color;
+        }
+    }
+
+}
+
+.menu-item-has-children {
+    >a {
+        @extend %rel;
+        &::after {
+            @extend %abs;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 25px;
+            width: 10px;
+            height: 2px;
+            background-color: $white-color;
+        }
+
+        &::before {
+            @extend %abs;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 29px;
+            width: 2px;
+            height: 10px;
+            background-color: $white-color;
+            @include transition($transition);
+        }
+
+        @include breakpoint(xl) {
+            &::after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+                width: 10px;
+                height: 2px;
+                background-color: $white-color;
+            }
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 4px;
+                width: 2px;
+                height: 10px;
+                background-color: $white-color;
+                @include transition($transition);
+            }
+        }
+
+
+    }
+
+    &:hover {
+        >a {
+            &:before {
+                @include breakpoint(xl) {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &.open {
+        >a {
+            &::after, &::before {
+                @extend %white-color;
+            }
+            &:before {
+                @include breakpoint(max-xl) {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+/*================*** Header Section End Here     ***===================*/

@@ -1,0 +1,130 @@
+.specialtie {
+    .section__header {
+        h2 {
+            @extend %white-color;
+        }
+    }
+    &__inner {
+        padding: 60px 30px;
+        background-color: rgba($white-color, $alpha: .1);
+        @extend %text-center;
+        @include transition($transition);
+        &:hover {
+            @include transform(translateY(-10px));
+        }
+    }
+    &__thumb {
+        @extend %mb-30;
+    }
+    &__content {
+        h2 {
+            @extend %theme-color;
+        }
+        h5 {
+            @extend %mb-0;
+            @extend %white-color;
+        }
+        >span {
+            @include font-size($fs-h4);
+            @extend %theme-color;
+            @extend %text-bold;
+            @extend %d-inline-block;
+            @include transform(translate(3px, 4px));
+        }
+    }
+    &__two {
+        background-color: $primary-color;
+        * {
+            @extend %white-color;
+        }
+        .specialtie {
+            &__inner {
+                @extend %flex, %p-0, %align-items-center;
+                text-align: left;
+                background-color: transparent;
+                &:hover {
+                    @include transform(translateY(0px));
+                }
+            }
+            &__thumb {
+                @extend %w-100;
+                @include breakpoint(lg) {
+                    width: calc(100% / 2);
+                    padding-right: 30px;
+                    margin-bottom: 0;
+                    @include breakpoint(max-xl) {
+                        width: 100%;
+                        margin-bottom: 30px;
+                    }
+                }
+                img {
+                    @extend %w-100;
+                }
+            }
+            &__content {
+                @extend %w-100;
+                @include breakpoint(lg) {
+                    width: calc(100% / 2);
+                    @include breakpoint(max-xl) {
+                        width: 100%;
+                    }
+                }
+                h6 {
+                    @extend %theme-color;
+                }
+                h2 {
+                    @extend %white-color, %mb-15, %text-3;
+                }
+                p {
+                    @extend %mb-0;
+                }
+                .thumb {
+                    @extend %rel;
+                    img {
+                        @extend %w-100;
+                    }
+                    .icon {
+                        @extend %center, %text-center;
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        background-color: $theme-color;
+                        @include border-radius(100%);
+                    }
+                }
+                .content {
+                    ul {
+                        li {
+                            padding-block: 5px;
+                            i {
+                                @extend %mr-5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__three {
+        .specialtie {
+            &__inner {
+                @include breakpoint(lg) {
+                    text-align: left;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                }
+            }
+            &__thumb {
+                @include breakpoint(lg) {
+                    margin-bottom: 0;
+                }
+            }
+            &__content {
+                @include breakpoint(lg) {
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}

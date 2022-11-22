@@ -1,0 +1,10 @@
+.fourzero {
+    &__thumb {
+        @extend %mb-30;
+    }
+    &__content {
+        p {
+            @extend %mb-30;
+        }
+    }
+}

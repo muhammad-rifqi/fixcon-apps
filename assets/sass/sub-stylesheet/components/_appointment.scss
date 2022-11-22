@@ -1,0 +1,51 @@
+.appointment {
+    margin-top: -40px;
+    z-index: 1;
+    @extend %rel;
+    form {
+        padding: 35px;
+        box-shadow: 0 0 10px rgba($title-color, $alpha: .25);
+        background-color: $white-color;
+        @extend %rel;
+        &::after {
+            @extend %abs;
+            width: 95%;
+            height: 10px;
+            top: 100%;
+            left: 50%;
+            background-color: $theme-color;
+            @include transform(translateX(-50%));
+        }
+    }
+    &__inner {
+        @extend %flex, %align-items-center;
+        &--submit {
+            text-align: center;
+            @include breakpoint(xl) {
+                text-align: right;
+            }
+            .lab-btn {
+                @extend %border-none;
+            }
+        }
+    }
+    &__thumb {
+        width: 40px;
+    }
+    &__content {
+        width: calc(100% - 40px);
+        @extend %pl-15;
+        label {
+            @extend %text-capitalize;
+        }
+        input {
+            @extend %title-color, %text-bold, %p-0,;
+            &::-webkit-calendar-picker-indicator {
+                opacity: 100;
+            }
+            &::placeholder {
+                @extend %title-color, %text-bold, %text-capitalize;
+            }
+        }
+    }
+}

@@ -1,0 +1,182 @@
+.footer {
+    .bg-title {
+        .footer__page {
+            .footer__wrapper {
+                ul {
+                    li {
+                        a {
+                            &:hover, &:focus {
+                                @extend %theme-color;
+                                &::after {
+                                    border-left-color: $theme-color;
+                                }
+                            }
+                            &::after {
+                                border-left-color: $white-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer__post .footer__wrapper ul li {
+            border-bottom: 1px solid rgba($white-color, $alpha: .2);
+        }
+    }
+    &__title {
+        @extend %mb-30;
+    }
+    &__about {
+        p {
+            @extend %mb-30;
+        }
+        ul {
+            li {
+                @extend %d-inline-block;
+                a {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    background-color: $theme-color;
+                    @extend %mr-5;
+                    @extend %text-center;
+                    @extend %white-color;
+                    @extend %d-inline-block;
+                    @include border-radius(100%);
+                }
+            }
+        }
+    }
+    &__page {
+        .footer {
+            &__wrapper {
+                ul {
+                    @extend %flex;
+                    @extend %justify-between;
+                    li {
+                        width: calc(100% / 2);
+                        padding-left: 10px;
+                        a {
+                            margin-block: 3px;
+                            @extend %p-5;
+                            @extend %d-inline-block;
+                            @extend %text-capitalize;
+                            @extend %rel;
+                            &::after {
+                                @extend %abs;
+                                top: 50%;
+                                left: -5px;
+                                width: 0;
+                                height: 0;
+                                border-top: 5px solid transparent;
+                                border-left: 5px solid $title-color;
+                                border-bottom: 5px solid transparent;
+                                @include transform(translateY(-50%));
+                                @include transition($transition);
+                            }
+                            &:hover {
+                                @extend %theme-color;
+                                @extend %pl-15;
+                                &::after {
+                                    left: 5px;
+                                    border-left-color: $theme-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__post {
+        .footer {
+            &__wrapper {
+                ul {
+                    li {
+                        @extend %flex;
+                        @extend %mb-20;
+                        @extend %pb-20;
+                        border-bottom: 1px solid $border-color;
+                        &:last-child {
+                            border-bottom: none !important;
+                            @extend %mb-0;
+                            @extend %pb-0;
+                        }
+                        &:hover {
+                            .thumb {
+                                img {
+                                    @include transform(scale(1.1));
+                                }
+                            }
+                            .content {
+                                h6 {
+                                    a {
+                                        @extend %theme-color;
+                                    }
+                                }
+                            }
+                        }
+                        .thumb {
+                            width: 80px;
+                            @extend %hidden;
+                        }
+                        .content {
+                            width: calc(100% - 80px);
+                            @extend %pl-15;
+                            h6 {
+                                @include font-size(16px);
+                                a {
+                                    @extend %text-2;
+                                }
+                            }
+                            .date {
+                                i {
+                                    @extend %mr-5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__gallery {
+        .footer {
+            &__wrapper {
+                ul {
+                    @extend %flex;
+                    li {
+                        width: calc(100% / 3);
+                        a {
+                            @extend %d-block;
+                            @extend %m-5;
+                            @extend %hidden;
+                            img {
+                                @extend %w-100;
+                            }
+                            &:hover {
+                                img {
+                                    @include transform(scale(1.1));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        padding-block: 30px;
+    }
+    &__copytext {
+        p {
+            @extend %mb-0;
+            a {
+                @extend %theme-color;
+                @extend %text-bold;
+                @extend %text-capitalize;
+            }
+        }
+    }
+}

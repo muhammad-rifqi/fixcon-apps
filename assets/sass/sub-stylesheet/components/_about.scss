@@ -1,0 +1,292 @@
+.about {
+    @extend %hidden;
+    &__content {
+        >h6 {
+            @extend %theme-color;
+        }
+        h2 {
+            @extend %mb-20;
+        }
+        ul {
+            @extend %flex;
+            margin-block: 15px;
+            li {
+                @extend %flex;
+                @extend %w-100;
+                padding-block: 15px;
+                @include breakpoint(sm) {
+                    width: calc(100% / 2 - 15px);
+                }
+                @include breakpoint(lg) {
+                    @include breakpoint(max-xl) {
+                        width: 100%;
+                    }
+                }
+                .icon {
+                    width: 60px;
+                }
+                .text {
+                    @extend %pl-15;
+                    width: calc(100% - 60px);
+                    h6 {
+                        @extend %mb-0;
+                    }
+                    p {
+                        @extend %mb-0;
+                        max-width: 34ch;
+                    }
+                }
+            }
+        }
+    }
+    &__thumb {
+        .thumb {
+            @extend %rel;
+            &--2 {
+                >img {
+                    @extend %rel;
+                    z-index: 2;
+                    @include breakpoint(max-lg) {
+                        width: 100%;
+                    }
+                }
+            }
+            &--experience {
+                @extend %abs;
+                background-color: $primary-color;
+                display: inline-flex;
+                align-items: center;
+                gap: 15px;
+                left: 40px;
+                bottom: 40px;
+                padding: 10px 15px;
+                top: auto;
+                z-index: 2;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                @include breakpoint(lg) {
+                    padding: 15px 25px;
+                }
+                @include breakpoint(lg) {
+                    animation: shakeX 15s linear infinite;
+                    left: 0px;
+                }
+                h5 {
+                    @extend %mb-0;
+                    color: $white-color;
+                }
+            }
+            .floating-img {
+                @extend %abs;
+                top: -100px;
+                left: 0;
+                max-width: 40%;
+                animation: shakeY 15s linear infinite;
+                z-index: 1;
+                @include breakpoint(xxl) {
+                  max-width: 100%;
+                }
+                @include breakpoint(max-lg) {
+                    display: none;
+                }
+            }
+            &--content {
+                @extend %p-15, %rel, %h-100;
+                background-color: $primary-color;
+                @include breakpoint(max-sm) {
+                    height: 180px;
+                }
+                h4 {
+                    @extend %white-color;
+                }
+                img {
+                    @extend %abs;
+                    right: 15px;
+                    bottom: 15px;
+                }
+            }
+        }
+    }
+    &__footer {
+        @extend %flex, %align-items-center;
+        @extend %pt-20;
+        border-top: 1px solid $border-color;
+        >a {
+            @extend %mr-15;
+        }
+    }
+    &__author {
+        @extend %flex;
+        @extend %align-items-center;
+        @include breakpoint(max-sm) {
+            margin-top: 15px;
+        }
+        .thumb {
+            width: 80px;
+            img {
+                @include border-radius(100%);
+            }
+        }
+        .content {
+            width: calc(100% - 80px);
+            h6 {
+                @extend %mb-0;
+                a {
+                    &:hover {
+                        @extend %theme-color;
+                    }
+                }
+            }
+        }
+    }
+    &__one {
+        .about {
+            &__thumb {
+                .thumb {
+                    &::after {
+                        @extend %abs;
+                        background-image: url(../../assets/images/about/shape.png);
+                        width: 100%;
+                        height: 60%;
+                        left: -50px;
+                        top: -75px;
+                        @include breakpoint(max-lg) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__two {
+        .about {
+            &__thumb {
+                .thumb {
+                    &::after {
+                        @extend %d-none;
+                    }
+                    &--experience {
+                        background-color: $theme-color;
+                        // left: auto;
+                        // right: 15px;
+                        // bottom: auto;
+                        // top: 30px;
+                        @include breakpoint(sm) {
+                            left: auto;
+                            right: 15px;
+                            bottom: auto;
+                            top: 30px;
+                        }
+                        h5 {
+                            @extend %mb-0;
+                            color: $white-color;
+                        }
+                    }
+                    .floating-img {
+                        top: auto;
+                        left: auto;
+                        bottom: 15px;
+                        right: 15px;
+                        z-index: 2;
+                        border: 5px solid $white-color;
+                    }
+                }
+            }
+            &__content {
+                ul {
+                    li {
+                        padding-block: 15px;
+                        .text {
+                            p {
+                                max-width: 34ch;
+                            }
+                        }
+                    }
+                }
+            }
+            &__footer {
+                border-top: none;
+                @extend %pt-0;
+            }
+        }
+    }
+    &__three, &__four {
+        .about {
+            &__thumb {
+                .thumb {
+                    &::after {
+                        @extend %d-none;
+                    }
+                    &--experience {
+                        left: auto;
+                        right: 0;
+                        bottom: 15px;
+                        border: 2px solid $white-color;
+                        img {
+                            @include breakpoint(max-sm) {
+                                width: 40px;
+                            }
+                        }
+                        h5 {
+                            @include breakpoint(max-sm) {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            &__content {
+                h6 {
+                    @extend %mb-5;
+                }
+                ul {
+                    @extend %justify-between;
+                }
+            }
+        }
+    }
+    &__four {
+        overflow: visible;
+        padding-top: 30px;
+        .about {
+            &__thumb {
+                @extend %mb-30;
+            }
+            &__content {
+                h6 {
+                    @extend %mb-10;
+                }
+            }
+        }
+        .callAaction__form {
+            background-color: $bg-color;
+            @include breakpoint(lg) {
+                margin-top: -80px;
+            }
+            input, textarea, .custom-select {
+                background-color: $white-color;
+            }
+        }
+    }
+}
+
+// progressbararea
+.progressbararea {
+    li {
+        width: 100%;
+        @include breakpoint(sm) {
+            width: 100% !important;
+        }
+        padding-block: 20px;
+        .title {
+            @extend %flex, %justify-between, %w-100;
+        }
+        .progress {
+            @extend %w-100;
+            height: 10px;
+            background-color: $primary-color;
+            .progress-bar {
+                background-color: $theme-color;
+            }
+        }
+    }
+}

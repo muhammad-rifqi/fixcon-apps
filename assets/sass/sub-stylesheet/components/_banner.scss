@@ -1,0 +1,276 @@
+.banner {
+    &__btngroup {
+        @extend %flex, %align-items-center;
+        &.justify-content-center {
+            .lab-btn {
+                @include breakpoint(max-sm) {
+                    margin-right: 5px;
+                }
+            }
+            .video__btn {
+                @include breakpoint(max-sm) {
+                    justify-content: center;
+                }
+            }
+        }
+        .lab-btn {
+            @extend %mr-30, %text-center;
+            background-color: $white-color;
+            color: $title-color;
+            min-width: 170px;
+            @include breakpoint(max-sm) {
+                margin-bottom: 25px;
+            }
+            &:hover {
+                background-color: $theme-color;
+                color: $white-color;
+            }
+        }
+        .video__btn {
+            @extend %flex;
+            @extend %align-items-center;
+            @include breakpoint(max-sm) {
+                width: 100%;
+            }
+            i {
+                @extend %theme-color;
+                @include font-size(60px);
+                @extend %mr-15;
+            }
+            span {
+                @extend %white-color;
+                @extend %text-bold;
+                @extend %text-capitalize;
+            }
+        }
+    }
+    &__one {
+        .banner {
+            &__area {
+                padding-block: 150px;
+                @include breakpoint(md) {
+                    padding-block: 175px;
+                    padding-bottom: 250px;
+                }
+                @include breakpoint(xl) {
+                    padding-block: 300px;
+                }
+            }
+            &__content {
+                padding-top: 80px;
+                h6 {
+                    @extend %theme-color;
+                    @extend %mb-15;
+                }
+                h2 {
+                    @extend %white-color;
+                    @include font-size(64px);
+                    line-height: 1.2;
+                    @extend %mb-30;
+                }
+            }
+        }
+    }
+    &__two {
+        @include breakpoint(xl) {
+            background-position: center;
+        }
+        .banner {
+            &__area {
+                padding-block: 100px;
+                @include breakpoint(md) {
+                    padding-block: 150px;
+                }
+                @include breakpoint(xl) {
+                    padding-block: 260px;
+                }
+            }
+            &__content {
+                @include breakpoint(max-xl) {
+                    margin-top: 90px;
+                }
+                h6 {
+                    @extend %theme-color;
+                    @extend %mb-15;
+                }
+                h2 {
+                    @extend %title-color;
+                    @include font-size(64px);
+                    line-height: 1.2;
+                    @extend %mb-20;
+                }
+                p {
+                    margin-bottom: 40px;
+                    max-width: 550px;
+                }
+            }
+            &__btngroup {
+                @extend %flex;
+                .lab-btn {
+                    background-color: $theme-color;
+                    color: $white-color;
+                    &:hover {
+                        background-color: $theme-color;
+                        color: $white-color;
+                    }
+                }
+                .video__btn {
+                    span {
+                        @extend %title-color;
+                    }
+                }
+            }
+            
+        }
+    }
+    &__three {
+        .banner {
+            &__content {
+                h6 {
+                    @extend %theme-color;
+                }
+                h2 {
+                    @extend %title-color;
+                }
+            }
+            &__btngroup {
+                .lab-btn {
+                    @extend %white-color;
+                    background-color: $theme-color;
+                    &:hover {
+                        background-color: $primary-color;
+                    }
+                    &:last-child {
+                        background-color: $primary-color;
+                        &:hover {
+                            background-color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__four {
+        @include breakpoint(xl) {
+            background-position: center;
+        }
+        .banner {
+            &__area {
+                @include breakpoint(md) {
+                    padding-block: 150px;
+                }
+                @include breakpoint(xl) {
+                    padding-block: 200px;
+                }
+            }
+        }
+    }
+    &__five {
+        @extend %rel;
+        @extend %hidden;
+        @include breakpoint(xl) {
+            background-position: center;
+        }
+        &::after {
+            @extend %abs;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: rgba($title-color, $alpha: .7);
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .banner__content {
+            z-index: 2;
+            @extend %rel;
+        }
+        .banner {
+            &__btngroup {
+                a {
+                    &:first-child {
+                        background-color: $theme-color;
+                        @extend %white-color;
+                        &:hover {
+                            background-color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.banner__slider__one {
+    .swiper-slide-active {
+        .banner {
+            &__content {
+                h6 {
+                    @include transform(translateY(0));
+                }
+                h2 {
+                    @include transform(translateY(0));
+                }
+            }
+            &__btngroup {
+                @include transform(translateY(0));
+            }
+        }
+    }
+    .banner {
+        &__content {
+            h6 {
+                @include transform(translateY(-700px));
+                @include transition(all 2s ease);
+            }
+            h2 {
+                @include transform(translateY(-700px));
+                @include transition(all 1.5s ease);
+            }
+        }
+        &__btngroup {
+            @include transform(translateY(700px));
+            @include transition(all 1s ease);
+        }
+    }
+}
+
+.banner__slider__two {
+    .swiper-slide-active {
+        .banner {
+            &__content {
+                h6 {
+                    @include transform(translateY(0));
+                }
+                h2 {
+                    @include transform(translateX(0));
+                }
+            }
+            &__btngroup {
+                @include transform(translateY(0));
+            }
+        }
+    }
+    .banner {
+        &__content {
+            h6 {
+                @include transform(translateY(-700px));
+                @include transition(all 2s ease);
+            }
+            h2 {
+                @include transform(translateX(-700px));
+                @include transition(all 1.5s ease);
+            }
+        }
+        &__btngroup {
+            @include transform(translateY(700px));
+            @include transition(all 1s ease);
+        }
+    }
+}

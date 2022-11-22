@@ -1,0 +1,29 @@
+.pageheader {
+    padding-block: 138px;
+    margin-top: 0px;
+    background-image: url(../../assets/images/bg/pageheader.jpg);
+    @include breakpoint(xl) {
+        margin-top: 131px;
+    }
+    @include breakpoint(max-sm) {
+        // margin-top: 66px;
+    }
+    &__content {
+        @extend %text-center;
+        h2 {
+            @extend %white-color;
+        }
+        .breadcrumb {
+            @extend %justify-center;
+            .breadcrumb-item {
+                @extend %text-capitalize;
+                &.active, &:hover a {
+                    @extend %theme-color;
+                }
+                a {
+                    @extend %text-bold, %white-color;
+                }
+            }
+        }
+    }
+}

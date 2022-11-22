@@ -1,0 +1,73 @@
+/*Contact Item Css Start here*/
+.contact {
+    &__form {
+        form {
+            @extend %flex, %justify-center;
+            gap: 30px;
+            input {
+                border: 1px solid $border-color;
+                background-color: $white-color;
+                @include breakpoint(sm) {
+                    width: calc(100% / 2 - 15px);
+                }
+            }
+            textarea {
+                border: 1px solid $border-color;
+                background-color: $white-color;
+            }
+            .lab-btn {
+                @extend %border-none;
+            }
+        }
+    }
+}
+
+
+// information 
+.information {
+    &__item {
+        @extend %text-center;
+        border: 1px solid $border-color;
+        padding: 50px 20px;
+    }
+    &__icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        margin: 0 auto 15px;
+        background-color: $theme-color;
+        @extend %text-center, %white-color;
+        @include border-radius(100%);
+        @include font-size(24px);
+    }
+    &__content {
+        p {
+            @extend %mb-0;
+            span {
+                @extend %theme-color;
+            }
+        }
+    }
+}
+
+
+// Google Map
+.googleMap {
+    height: 450px;
+    iframe {
+        @extend %w-100, %h-100, %border-none, %m-0;
+    }
+}
+
+// form-message
+.form-message {
+    @extend %m-0;
+    font-size: $fs-base;
+    &.success {
+        @extend %mt-30;
+        color: $theme-color2;
+    }
+    &.error {
+        @extend %mt-30, %theme-color;
+    }
+}

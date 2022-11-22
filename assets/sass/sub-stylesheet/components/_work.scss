@@ -1,0 +1,109 @@
+.work {
+    &__inner {
+        &:hover {
+            .work {
+                &__thumb {
+                    img {
+                        @include transform(scale(1.1));
+                    }
+                    span {
+                        @extend %theme-color;
+                        border-color: $bg-color;
+                        background-color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    &__thumb {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        margin: 0 auto 30px;
+        @extend %rel;
+        @extend %text-center;
+        @include border-radius(100%);
+        @include transition($transition);
+        background-color: $title-color;
+        span {
+            width: 50px;
+            height: 50px;
+            line-height: 40px;
+            border: 5px solid $white-color;
+            background-color: $theme-color;
+            bottom: 0px;
+            @extend %abs;
+            @extend %d-inline-block;
+            @extend %white-color;
+            @extend %text-center;
+            @extend %text-bold;
+            @include transition($transition);
+            @include font-size(18px);
+            @include border-radius(100%);
+        }
+    }
+    &__content {
+        p {
+            width: 290px;
+            margin: auto;
+        }
+    }
+    &__two {
+        .work {
+            &__inner {
+                width: 270px;
+                height: 270px;
+                margin-inline: auto;
+                background-color: $primary-color;
+                @extend %text-center, %white-color, %rel;
+                @include border-radius(100%);
+                @include transition($transition);
+                &:hover {
+                    background-color: $theme-color;
+                    >span {
+                        background-color: $primary-color;
+                    }
+                    .work {
+                        &__content {
+                            p {
+                                display: inherit;
+                                max-width: 100%;
+                            }
+                            img {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                span {
+                    @extend %d-inline-block, %text-center, %text-bold, %abs;
+                    top: 0;
+                    left: 50%;
+                    width: 70px;
+                    height: 70px;
+                    line-height: 66px;
+                    border: 2px solid $white-color;
+                    background-color: $theme-color;
+                    @include transform(translateX(-50%));
+                    @include border-radius(100%);
+                    @include font-size($fs-h4);
+                    @include transition($transition);
+                }
+            }
+            &__content {
+                @extend %abs, %w-100, %p-15;
+                bottom: 40px;
+                
+                img {
+                    @extend %mb-15;
+                }
+                h5 {
+                    @extend %w-100, %white-color;
+                }
+                p {
+                    @extend %d-none;
+                }
+            }
+        }
+    }
+}

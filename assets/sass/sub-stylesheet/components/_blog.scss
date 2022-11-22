@@ -1,0 +1,167 @@
+.blog {
+    &.home {
+        .blog {
+            &__inner {
+                @extend %p-10;
+                background-color: $white-color;
+                border: 1px solid #F2F6F9;
+                &:hover {
+                    .blog {
+                        &__thumb {
+                            img {
+                                @include transform(scale(1.1));
+                            }
+                        }
+                        &__content {
+                            h4 {
+                                a {
+                                    @extend %theme-color;
+                                }
+                            }
+                            .read-more {
+                                @extend %theme-color;
+                            }
+                        }
+                    }
+                }
+            }
+            &__thumb {
+                @extend %hidden;
+                @extend %rel;
+                img {
+                    @extend %w-100;
+                }
+                .date {
+                    @extend %abs;
+                    @extend %d-inline-block;
+                    @extend %white-color;
+                    bottom: 15px;
+                    left: 15px;
+                    padding: 5px 15px;
+                    background-color: $theme-color;
+                    i {
+                        @extend %mr-5;
+                    }
+                }
+            }
+            &__content {
+                @extend %p-20;
+                .read-more {
+                    @extend %text-bold;
+                    @extend %text-capitalize;
+                }
+                h4, h3 {
+                    a {
+                        @extend %text-2;
+                    }
+                }
+            }
+            &__meta {
+                @extend %pb-10;
+                @extend %mb-20;
+                border-bottom: 1px solid #F2F6F9;
+                ul {
+                    @extend %flex;
+                    @extend %justify-between;
+                    li {
+                        @extend %d-inline-block;
+                        @extend %text-capitalize;
+                        i {
+                            @extend %mr-5;
+                            @extend %theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__two {
+        .blog {
+            &__meta {
+                @extend %pt-20;
+                @extend %mt-25;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+                border-bottom: none !important;
+                border-top: 1px solid $border-color;
+            }
+        }
+    }
+    &.bg-primary {
+        .section__header {
+            h2 {
+                @extend %white-color;
+            }
+        }
+    }
+    &--classic, &--single {
+        .blog {
+            &__inner {
+                &:hover {
+                    .blog {
+                        &__content {
+                            h3 {
+                                a {
+                                    @extend %theme-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__meta {
+                padding-bottom: 20px !important;
+                ul {
+                    justify-content: flex-start !important;
+                    li {
+                        @extend %mr-30;
+                    }
+                }
+            }
+            &__content {
+                h3 {
+                    @extend %mb-10;
+                }
+            }
+        }
+    }
+    &--single {
+        .blog {
+            &__inner {
+                &:hover {
+                    .blog__thumb img {
+                        @include transform(scale(1) !important);
+                    }
+                }
+            }
+            &__content {
+                blockquote {
+                    margin-block: 30px;
+                    background-color: $primary-color;
+                    @extend %flex, %p-15;
+                    @include breakpoint(sm) {
+                        padding: 30px;
+                    }
+                    i {
+                        width: 60px;
+                        height: 60px;
+                        line-height: 60px;
+                        background-color: $theme-color;
+                        @extend %text-center, %white-color, %mb-10;
+                        @include border-radius(100%);
+                        @include font-size(24px);
+                    }
+                    p {
+                        @extend %white-color, %mb-0, %w-100;
+                        @include breakpoint(sm) {
+                            width: calc(100% - 60px);
+                            padding-left: 15px;
+                            font-size: 20px;
+                            line-height: 1.4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

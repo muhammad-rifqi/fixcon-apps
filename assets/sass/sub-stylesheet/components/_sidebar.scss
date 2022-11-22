@@ -1,0 +1,390 @@
+
+.sidebar {
+    .head {
+        padding: 15px 20px;
+        border-bottom: 1px solid $border-color;
+        @include breakpoint(sm) {
+            padding-inline: 30px;
+        }
+        h4 {
+            @extend %mb-0;
+        }
+    }
+    .body {
+        ul {
+            li {
+                @extend %flex, %align-items-center ;
+                padding: 15px 20px;
+                margin-block: 10px;
+                border-bottom: 1px solid $border-color;
+                @include breakpoint(sm) {
+                    padding-inline: 30px;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+                &:hover {
+                    .content {
+                        h5 {
+                            a {
+                                color: $theme-color;
+                            }
+                        }
+                    }
+                }
+                .thumb {
+                    width: 40px;
+                }
+                .content {
+                    @extend %pl-15;
+                    width: calc(100% - 40px);
+                    h6 {
+                        @extend %mb-0;
+                        a {
+                            @extend %text-2;
+                        }
+                    }
+                    h5 {
+                        @include font-size(18px);
+                    }
+                    span {
+                        @extend %desc-color;
+                    }
+                }
+            }
+        }
+    }
+    &__service {
+        border: 1px solid $border-color;
+        .body {
+            ul {
+                li {
+                    .thumb {
+                        width: 50px;
+                    }
+                    .content {
+                        width: calc(100% - 50px);
+                    }
+                }
+            }
+        }
+        &--project {
+            .body {
+                ul {
+                    li {
+                        .content {
+                            padding-left: 0;
+                            width: 100%;
+                            span {
+                                color: $theme-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    &__brochure, &__helps {
+        border: 1px solid $border-color;
+        .body {
+            @extend %p-30;
+            .thumb {
+                @extend %mb-15;
+            }
+        }
+    }
+    &__helps {
+        .body {
+            padding: 15px;
+            .content {
+                ul {
+                    li {
+                        .thumb {
+                            @extend %mb-0;
+                        }
+                        padding-inline: 0;
+                        p {
+                            margin-bottom: 0;
+                            color: $title-color;
+                            font-weight: 600;
+                            @extend %text-capitalize;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__search {
+        border: 1px solid $border-color;
+        .body {
+            @extend %p-20;
+            @include breakpoint(sm) {
+                padding: 30px;
+            }
+        }
+        form {
+            @extend %rel;
+            input {
+                background-color: $bg-color;
+                @extend %p-15;
+            }
+            button {
+                @extend %abs;
+                top: 50%;
+                right: 10px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                @include transform(translateY(-50%));
+            }
+        }
+    }
+    &__recentpost {
+        border: 1px solid $border-color;
+        .body {
+            ul {
+                li {
+                    &:hover {
+                        .thumb {
+                            img {
+                                @include transform(scale(1.1));
+                            }
+                        }
+                        .content {
+                            h6 {
+                                a {
+                                    @extend %theme-color;
+                                }
+                            }
+                        }
+                    }
+                    .thumb {
+                        width: 80px;
+                        @extend %hidden;
+                    }
+                    .content {
+                        width: calc(100% - 80px);
+                        h6 {
+                            @include font-size(1rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__categorie {
+        border: 1px solid $border-color;
+        .body {
+            ul {
+                li {
+                    @extend %flex, %justify-between ;
+                    &:hover {
+                        a, span {
+                            @extend %theme-color;
+                        }
+                    }
+                    a {
+                        i {
+                            @extend %mr-5, %desc-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__tags {
+        border: 1px solid $border-color;
+        .body {
+            @extend %p-20;
+            @include breakpoint(sm) {
+                padding: 30px;
+            }
+            ul {
+                li {
+                    display: inline-block;
+                    padding: 0;
+                    border: none;
+                    a {
+                        padding: 8px 12px;
+                        border: 1px solid $border-color;
+                        @extend %text-capitalize;
+                        &:hover {
+                            @extend %white-color;
+                            background-color: $theme-color;
+                            border-color: $theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__relatedpost {
+        border: 1px solid $border-color;
+        .body {
+            @extend %p-20;
+            @include breakpoint(sm) {
+                padding: 30px;
+            }
+            ul {
+                @extend %flex, %justify-between;
+                li {
+                    @extend %w-100;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                    @include breakpoint(sm) {
+                        width: calc(100% / 2 - 15px);
+                    }
+                    &:hover {
+                        .thumb {
+                            img {
+                                @include transform(scale(1.1));
+                            }
+                        }
+                        .content {
+                            h6 {
+                                a {
+                                    @extend %theme-color;
+                                }
+                            }
+                        }
+                    }
+                    .thumb {
+                        width: 100px;
+                        @extend %hidden;
+                        img {
+                            @extend %w-100;
+                        }
+                    }
+                    .content {
+                        width: calc(100% - 100px);
+                    }
+                }
+            }
+        }
+    }
+    &__author {
+        border: 1px solid $border-color;
+        .body {
+            @extend %p-20, %flex;
+            gap: 15px;
+            @include breakpoint(sm) {
+                padding: 30px;
+            }
+            .thumb {
+                @extend %w-100;
+                @include breakpoint(sm) {
+                    width: 120px;
+                }
+            }
+            .content {
+                @extend %w-100;
+                @include breakpoint(sm) {
+                    width: calc(100% - 135px);
+                    padding-left: 15px;
+                }
+                h5 {
+                    @extend %mb-0;
+                }
+                span {
+                    @extend %mb-10, %d-inline-block;
+                }
+                ul {
+                    li {
+                        @extend %d-inline-block, %border-none, %p-0, %m-0;
+                        a {
+                            @extend %p-5;
+                            &:hover {
+                                @extend %theme-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__comment {
+        border: 1px solid $border-color;
+        .body {
+            ul {
+                li {
+                    align-items: flex-start;
+                    .thumb {
+                        width: 100%;
+                        margin-bottom: 15px;
+                        @include breakpoint(sm) {
+                            width: 80px;
+                            margin-bottom: 0;
+                        }
+                    }
+                    .content {
+                        width: 100%;
+                        padding-left: 0;
+                        @include breakpoint(sm) {
+                            width: calc(100% - 80px);
+                            padding-left: 15px;
+                        }
+                        &__top {
+                            @extend %flex, %justify-between, %align-items-center, %mb-10 ;
+                            gap: 10px;
+                            .name {
+                                h6 {
+                                    @include font-size(16px);
+                                    @extend %mb-5;
+                                }
+                            }
+                        }
+                        .reply {
+                            @include breakpoint(max-sm) {
+                                margin: 10px 0 15px;
+                            }
+                            a {
+                                @extend %white-color, %text-capitalize;
+                                padding: 5px 15px;
+                                background-color: $theme-color;
+                                @include font-size(14px);
+                            }
+                        }
+                    }
+                    ul {
+                        li {
+                            border-top: 1px solid $border-color;
+                            border-bottom: none;
+                            @include breakpoint(max-sm) {
+                                padding-inline: 0;
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__commentForm {
+        border: 1px solid $border-color;
+        .body {
+            form {
+                @extend %flex, %justify-between, %p-20;
+                gap: 30px;
+                @include breakpoint(sm) {
+                    padding: 30px;
+                }
+                input {
+                    border: 1px solid $border-color;
+                    @include breakpoint(sm) {
+                        width: calc(100% / 2 - 15px);
+                    }
+                }
+                textarea {
+                    border: 1px solid $border-color;
+                }
+                .lab-btn {
+                    border: none;
+                }
+            }
+        }
+    }
+}

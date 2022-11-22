@@ -1,0 +1,90 @@
+.project {
+    &__inner {
+        @extend %rel;
+        &:hover {
+            .project {
+                &__thumb {
+                    img {
+                        @include transform(scale(1.1));
+                    }
+                }
+                &__content {
+                    opacity: 1;
+                }
+                &__icon {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__thumb {
+        @extend %hidden;
+        img {
+            @extend %w-100;
+        }
+    }
+    &__content {
+        @extend %abs;
+        @extend %w-100;
+        @extend %h-100;
+        @extend %p-30;
+        @extend %flex;
+        @include transition($transition);
+        flex-direction: column-reverse;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($theme-color, $alpha: .9);
+        opacity: 0;
+        span {
+            @extend %d-block;
+            @extend %white-color;
+        }
+        h4 {
+            a {
+                @extend %white-color;
+                @extend %text-1;
+            }
+        }
+    }
+    &__icon {
+        @extend %abs;
+        width: 56px;
+        height: 56px;
+        line-height: 56px;
+        right: 30px;
+        top: 30px;
+        opacity: 0;
+        background-color: $white-color;
+        @extend %theme-color;
+        @extend %text-center;
+        @include border-radius(100%);
+        @include transition($transition);
+        &:hover {
+            @extend %theme-color;
+        }
+    }
+    &__two {
+        .project {
+            &__item {
+                @include breakpoint(sm) {
+                    width: calc(100% / 2);
+                }
+                @include breakpoint(lg) {
+                    width: calc(100% / 3);
+                }
+            }
+            &__inner {
+                @extend %m-10;
+            }
+            &__content {
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            &__icon {
+                position: static;
+                margin: 0 auto 15px;
+            }
+        }
+    }
+}

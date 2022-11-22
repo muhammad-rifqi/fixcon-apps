@@ -1,0 +1,123 @@
+.history {
+    .section__wrapper {
+        @extend %flex;
+    }
+    &__item {
+        @include breakpoint(max-sm) {
+            width: 100%;
+        }
+        @include breakpoint(sm) {
+            @include breakpoint(max-lg) {
+                width: 50%;
+            }
+        }
+        &:last-child {
+            .history__year > span::before {
+                display: none;
+            }
+        }
+    }
+    &__inner {
+        @extend %flex, %align-items-center, %rel;
+        margin-block: 15px;
+        @include breakpoint(max-lg) {
+            margin: 15px;
+        }
+        &:hover {
+            .history {
+                &__thumb {
+                    img {
+                        @include transform(scale(1.1));
+                    }
+                }
+                &__year {
+                    >span {
+                        &::after {
+                            background-color: $theme-color;
+                        }
+                        span {
+                            @extend %theme-color;
+                            @include breakpoint(lg) {
+                                color: $white-color;
+                            }
+                        }
+                    }
+                }
+                &__content {
+                    h4 {
+                        @extend %theme-color;
+                    }
+                }
+            }
+        }
+    }
+    &__thumb {
+        @extend %hidden;
+        @include breakpoint(lg) {
+            width: 35%;
+        }
+        img {
+            @extend %w-100;
+        }
+    }
+    &__year {
+        @extend %text-center;
+        @include breakpoint(lg) {
+            width: 15%;
+        }
+        >span {
+            @extend %rel, %d-inline-block;
+            @include breakpoint(max-lg) {
+                padding: 5px 20px;
+                background-color: $white-color;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+            &::after {
+                @extend %abs;
+                @include transition($transition);
+                @include transform(translate(-50%, -50%) rotate(-45deg));
+                width: 90px;
+                height: 90px;
+                top: 50%;
+                left: 50%;
+                border: 2px solid $bg-color;
+                background-color: $white-color;
+                @include breakpoint(max-lg) {
+                    display: none;
+                }
+            }
+            &::before {
+                @extend %abs;
+                bottom: -125px;
+                left: 50%;
+                height: 100px;
+                width: 15px;
+                background-color: $white-color;
+                @include transform(translateX(-50%));
+                @include breakpoint(max-lg) {
+                    display: none;
+                }
+            }
+            span {
+                z-index: 1;
+                @extend %rel, %text-bold, %theme-color;
+                @include font-size(20px);
+                @include transition($transition);
+            }
+        }
+    }
+    &__content {
+        padding-top: 20px;
+        @include breakpoint(lg) {
+            width: 50%;
+            padding-top: 0;
+        }
+        h4 {
+            @include breakpoint(lg) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

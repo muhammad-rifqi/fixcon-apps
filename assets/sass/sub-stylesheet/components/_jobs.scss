@@ -1,0 +1,102 @@
+.jobs {
+    &__area {
+        @extend %p-30;
+        border: 1px solid $bg-color;
+        @include breakpoint(max-sm) {
+            padding-inline: 15px;
+        }
+    }
+    &__search {
+        form {
+            @extend %flex, %justify-between;
+            gap: 15px;
+            input {
+                border: 1px solid $bg-color;
+                @include breakpoint(lg) {
+                    width: calc(100% / 3 - 15px);
+                }
+                &[submit] {
+                    border: none;
+                }
+            }
+        }
+    }
+    &__catagory {
+        background-color: $bg-color;
+        margin-block: 30px;
+        ul {
+            padding: 4px;
+            li {
+                padding: 6px 12px;
+                border: 1px solid $border-color;
+                @extend %d-inline-block, %m-5;
+                @include breakpoint(lg) {
+                    border: none;
+                    margin: 0;
+                    padding: 10px 20px;
+                    border-right: 1px solid $border-color;
+                }
+                input {
+                    padding: 8px;
+                    outline: none;
+                    box-shadow: none;
+                    @extend %mr-5;
+                    margin-top: 2px;
+                    border-color: $border-color;
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                        border-color: $border-color;
+                    }
+                    &:checked {
+                        background-color: $theme-color;
+                        border-color: $theme-color;
+                    }
+                }
+            }
+        }
+    }
+    &__lists {
+        .table {
+            tr {
+                td {
+                    padding: 15px;
+                    vertical-align: middle;
+                    @extend %border-none;
+                    p {
+                        @extend %mb-0, %text-capitalize;
+                        b {
+                            color: $theme-color2;
+                        }
+                    }
+                    min-width: 200px;
+                }
+            }
+            &.table-striped>tbody>tr:nth-of-type(odd) {
+                --bs-table-accent-bg: #fff;
+            }
+            &.table-striped>tbody>tr:nth-of-type(even) {
+                background-color: $bg-color;
+                --bs-table-accent-bg: #F2F6F9;
+                td p b {
+                    @extend %theme-color;
+                }
+            }
+        }
+    }
+    &__list {
+        @extend %flex, %align-items-center;
+        min-width: 330px;
+        .thumb {
+            img {
+                @include border-radius(100%);
+            }
+        }
+        .content {
+            @extend %pl-15;
+            h5 {
+                @extend %mb-5;
+            }
+        }
+    }
+}

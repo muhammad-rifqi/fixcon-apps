@@ -1,0 +1,8 @@
+List URL
+http://<?base_url>/
+http://<?base_url>/about/
+http://<?base_url>/project/
+http://<?base_url>/service/
+http://<?base_url>/blog/
+http://<?base_url>/contact/
+http://<?base_url>/appointment/

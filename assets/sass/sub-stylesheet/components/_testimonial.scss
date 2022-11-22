@@ -1,0 +1,192 @@
+.testimonial {
+    &__area {
+        margin-top: 120px;
+    }
+    .section__header {
+        @include breakpoint(lg) {
+            margin-right: 50px;
+        }
+        h2 {
+            @extend %white-color;
+        }
+    }
+    &__navigation {
+        @extend %flex;
+        @extend %mt-30;
+        .navi {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: rgba($white-color, $alpha: .3);
+            @extend %white-color;
+            @extend %m-5;
+            @extend %text-center;
+            @include transition($transition);
+            @include border-radius(100%);
+            &:hover {
+                background-color: $theme-color;
+            }
+        }
+    }
+    &__inner {
+        @extend %flex, %text-center;
+        background-color: $white-color;
+        padding: 30px 15px;
+        gap: 20px;
+        @include breakpoint(sm) {
+            padding-left: 0;
+            text-align: left;
+            padding: 30px;
+            gap: 30px;
+        }
+    }
+    &__thumb {
+        width: 100%;
+        @include breakpoint(sm) {
+            width: 100px;
+            margin-left: -70px;
+        }
+        .thumb {
+            @extend %rel;
+            width: 100px;
+            @include breakpoint(max-sm) {
+                margin-inline: auto;
+            }
+            i {
+                width: 50px;
+                height: 50px;
+                line-height: 44px;
+                bottom: 20px;
+                right: -20px;
+                border: 3px solid $white-color;
+                background-color: $theme-color;
+                @extend %white-color;
+                @extend %abs;
+                @extend %text-center;
+                @extend %d-inline-block;
+                @include border-radius(100%);
+                @include font-size(24px);
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+        @include breakpoint(sm) {
+            width: calc(100% - 60px);
+
+        }
+    }
+    &__author {
+        @extend %flex;
+        @extend %justify-between;
+        .name {
+            @include breakpoint(max-sm) {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            h5 {
+                @extend %mb-0;
+            }
+        }
+        .rating {
+            @include breakpoint(max-sm) {
+                width: 100%;
+            }
+            i {
+                @extend %theme-color;
+            }
+        }
+    }
+    &__two {
+        .section__header {
+            margin-right: auto;
+        }
+    }
+    &__three {
+        .testimonial__slider__three {
+            height: 500px;
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    height: 450px;
+                }
+            }
+            @include breakpoint(max-sm) {
+                height: 310px;
+            }
+        }
+        .testimonial {
+            &__video {
+                @extend %rel;
+                .icon {
+                    @extend %center, %white-color, %text-center;
+                    background-color: $theme-color;
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    @include font-size($fs-h4);
+                    @include border-radius(100%);
+                }
+            }
+            &__inner {
+                @extend %pl-30;
+                gap: 15px;
+            }
+            &__thumb {
+                margin-left: 0;
+                border-bottom: 1px solid $border-color;
+                @extend %flex, %w-100,;
+                padding-bottom: 25px;
+                .thumb {
+                    width: 60px;
+                    height: 60px;
+                    @extend %hidden;
+                    @include border-radius(100%);
+                }
+            }
+            &__author {
+                @extend %pl-15, %justify-between, %align-items-center;
+                width: calc(100% - 60px);
+                text-align: left;
+            }
+            &__content {
+                @extend %w-100;
+                text-align: left;
+                p {
+                    @extend %mb-0;
+                }
+            }
+        }
+    }
+    &__four {
+        .testimonial {
+            &__inner {
+                @include breakpoint(sm) {
+                    padding-left: 30px;
+                }
+            }
+            &__thumb {
+                width: auto;
+                margin-left: 0;
+                @include breakpoint(max-sm) {
+                    width: 100%;
+                    margin-bottom: 25px;
+                }
+                .thumb {
+                    i {
+                        right: auto;
+                        left: 50%;
+                        bottom: -30px;
+                        @include transform(translateX(-50%));
+                    }
+                }
+            }
+            &__content {
+                // width: calc(100% - 130px);
+                @include breakpoint(sm) {
+                    // padding-left: 30px;
+                    width: calc(100% - 130px);
+                }
+            }
+        }
+    }
+}

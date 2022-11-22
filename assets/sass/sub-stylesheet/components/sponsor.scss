@@ -1,0 +1,6 @@
+.sponsor {
+    padding-block: 80px;
+    &__thumb {
+        @extend %text-center;
+    }
+}

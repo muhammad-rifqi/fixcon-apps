@@ -1,0 +1,201 @@
+.teamMember {
+    &__inner {
+        @extend %flex, %align-items-center;
+        @include border-radius(2px);
+        border: 1px solid $bg-color;
+        &:hover {
+            .teamMember {
+                &__thumb {
+                    img {
+                        @include transform(scale(1.1));
+                    }
+                }
+                &__content {
+                    h4 {
+                        a {
+                            @extend %theme-color;
+                        }
+                    }
+                    >a {
+                        @extend %theme-color;
+                    }
+                }
+            }
+        }
+    }
+    &__thumb {
+        @extend %hidden;
+        @extend %w-100;
+        @include breakpoint(sm) {
+            width: 40%;
+        }
+        img {
+            @extend %w-100;
+            height: 100%;
+            object-fit: cover;
+            // aspect-ratio: 1/1;
+        }
+        a {
+            @extend %d-block;
+            height: 100%;
+        }
+    }
+    &__content {
+        padding: 24px;
+        @include breakpoint(sm) {
+            width: 60%;
+        }
+        h4 {
+            @extend %mb-5;
+        }
+        span {
+            @extend %mb-5;
+            @extend %d-block;
+            @extend %text-capitalize;
+        }
+        ul {
+            @extend %mb-15;
+            li {
+                @extend %d-inline-block;
+                a {
+                    @extend %mr-10;
+                    &:hover {
+                        @extend %theme-color;
+                    }
+                }
+            }
+        }
+        >a {
+            @extend %text-bold;
+            @extend %text-capitalize;
+        }
+    }
+    &__two {
+        .infotext {
+            margin-top: 55px;
+        }
+        .teamMember {
+            &__inner {
+                @extend %rel;
+                &:hover {
+                    .teamMember {
+                        &__content {
+                            margin-top: -40px;
+                            z-index: 1;
+                            background-color: $theme-color;
+                            ul {
+                                opacity: 1;
+                                height: 24px;
+                                li {
+                                    a {
+                                        @extend %white-color;
+                                    }
+                                }
+                            }
+                            span {
+                                @extend %white-color;
+                                @extend %mb-10;
+                            }
+                            h4 {
+                                a {
+                                    @extend %white-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__thumb {
+                @extend %w-100;
+            }
+            &__content {
+                @extend %w-100;
+                @extend %p-15;
+                // @extend %abs;
+                @extend %text-center;
+                @include transition($transition);
+                bottom: 0;
+                left: 0;
+                background-color: $bg-color;
+                span {
+                    @extend %mb-0;
+                    @include transition($transition);
+                }
+                h4 {
+                    @extend %mb-5;
+                }
+                ul {
+                    @extend %m-0;
+                    opacity: 0;
+                    height: 0;
+                    @include transition($transition);
+                }
+            }
+        }
+    }
+    &__single {
+        .teamMember {
+            &__memberInfo {
+                @extend %p-15;
+                box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.1);
+                &-thumb {
+                    img {
+                        @extend %w-100;
+                    }
+                }
+                &-content {
+                    padding: 30px 15px;
+                    h4 {
+                        @extend %mb-5;
+                    }
+                    >span {
+                        @extend %text-capitalize, %mb-15, %d-inline-block;
+                    }
+                    ul {
+                        @extend %mb-15;
+                        li {
+                            padding-block: 5px;
+                            a {
+                                @extend %p-5;
+                                &:hover {
+                                    @extend %theme-color;
+                                }
+                            }
+                        }
+                        &.progressbararea {
+                            @extend %mb-0;
+                            li {
+                                padding-block: 10px;
+                                &:last-child {
+                                    padding-bottom: 0;
+                                }
+                                .progress {
+                                    background-color: $bg-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &__memberDetails {
+                form {
+                    @extend %flex, %justify-between;
+                    margin-top: 60px;
+                    gap: 30px;
+                    input {
+                        background-color: $bg-color;
+                        @include breakpoint(sm) {
+                            width: calc(100% / 2 - 15px);
+                        }
+                    }
+                    textarea {
+                        background-color: $bg-color;
+                    }
+                    .lab-btn {
+                        @extend %border-none;
+                    }
+                }
+            }
+        }
+    }
+}
